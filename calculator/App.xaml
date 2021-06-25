@@ -4,6 +4,28 @@
              xmlns:local="clr-namespace:calculator"
              StartupUri="MainWindow.xaml">
     <Application.Resources>
-         
+        <LinearGradientBrush x:Key="GrayBlueGradientBrush"
+                              StartPoint="0,0" EndPoint="1,1">
+            <GradientStop Color="DarkGray" Offset="0"/>
+            <GradientStop Color="Black" Offset="0.5"/>
+            <GradientStop Color="DarkGray" Offset="1"/>
+        </LinearGradientBrush>
+        <Style TargetType="{x:Type Button}">
+            <Setter Property="Background" Value="{StaticResource GrayBlueGradientBrush}"/>
+            <Setter Property="Width" Value="70"/>
+            <Setter Property="Height" Value="70"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Grid Width="{TemplateBinding Width}" Height="{TemplateBinding Height}" ClipToBounds="True">
+                            <Rectangle x:Name="outerRectangle" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Stroke="{TemplateBinding Background}" RadiusX="30" RadiusY="30" StrokeThickness="3" Fill="#282828"/>
+                            <DockPanel Name="myContentPresenterDockPanel">
+                                <ContentPresenter x:Name="myContentPresenter" Margin="20" Content="{TemplateBinding  Content}"  />
+                            </DockPanel>
+                        </Grid>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
     </Application.Resources>
 </Application>

@@ -13,11 +13,15 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
+
+
 namespace calculator
 {
+
     
     public partial class MainWindow : Window
     {
+
         string leftop = ""; 
         string operation = "";
         string rightop = ""; 
@@ -35,6 +39,7 @@ namespace calculator
         }
         private void Button_Click(object sender, RoutedEventArgs e)
         {
+
             string s = (string)((Button)e.OriginalSource).Content;
             textBlock.Text += s;
             int num;
@@ -55,7 +60,6 @@ namespace calculator
             {
                 if (s == "=")
                 {
-                    textBlock.Text = "";
                     Update_RightOp();
                     textBlock.Text += rightop;
                     operation = "";
